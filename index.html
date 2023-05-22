@@ -38,8 +38,8 @@
         </select>
         <br>
         <button id="btnSumit" class="btn-outline-danger mt-3">Kiểm tra</button>
-        <p>
-            kết quả
+        <p class="mt-3 alert alert-success">
+
             <span id="results"></span>
         </p>
 
@@ -53,10 +53,41 @@
         <input id="soKwInput" type="number" placeholder="Nhập số KW">
         <button id="btnDien">Tính tiền điện</button>
 
-        <p style="background-color: yellowgreen; color: black;" class="mt-3">
+        <p class="mt-3 alert alert-success">
             <span id="resultsTen"></span>
             <span id="resultsDien"></span>
         </p>
+    </div>
+
+    <div>
+        <h3>bài 3</h3>
+        <input id="tenInput" type="text" placeholder="Họ và tên">
+        <input id="thuNhapInput" type="number" placeholder="Tổng thu nhập trong năm">
+        <input id="soNguoiInput" type="number" placeholder="Số người phụ thuộc">
+        <button id="btnThue">Tính Tiền Thuế</button>
+        <p class="mt-3 alert alert-success">
+            <span id="resultsThue"></span>
+        </p>
+    </div>
+    <br>
+    <br>
+    <div>
+        <h3> bài 4 </h3>
+        <select id="loaiDoanhNghiep" onchange="genderChanged(this)">
+            <option value=""> -- Chọn loại doanh nghiệp -- </option>
+            <option value="doanhNghiep">Doanh nghiệp</option>
+            <option value="nhaDan">Nhà Dân</option>
+        </select> <br> <br>
+        <div id="number" style="display: none;">
+            <input id="soKetNoiInput" type="number" name="number" placeholder="Số kết nối"><br><br>
+        </div>
+        <input id="maKhInput" type="text" placeholder="Nhập mã khách hàng">
+        <input id="soKenhInput" type="number" placeholder="Số kênh cao cấp">
+        <button id="btnCap">Tính tiền cáp</button>
+        <p class="mt-3 alert alert-success">
+            <span id="resultsCap"></span>
+        </p>
+
     </div>
 
 
@@ -75,18 +106,6 @@
 
 
 
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
     <!-- my js    -->
     <script src="./index.js"></script>
 

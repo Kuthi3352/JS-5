@@ -110,11 +110,88 @@ document.getElementById("resultsDien").innerHTML = "Tiền điện :" +  totalDi
 
 document.getElementById("btnThue").onclick = function() {
     var ten = document.getElementById("tenInput").value;
-    var thuNhap = document.getElementById("thuNhapInput").value;
+    var thuNhap = +document.getElementById("thuNhapInput").value;
     var soNguoi = document.getElementById("soNguoiInput").value;
+var totalThue = 0 ;
+var thuNhapChiuThue = thuNhap - 4e+6 - soNguoi * 1.6e+6 ;
 
-
-if
-
-
+if (thuNhap <= 6e+7){
+    totalThue = thuNhapChiuThue * 0.05 ;
+}else if(thuNhap <= 12e+7){
+    totalThue = thuNhapChiuThue * 0.1 ;
+}else if(thuNhap <= 21e+7){
+    totalThue = thuNhapChiuThue * 0.15 ;
+}else if(thuNhap <= 384e+6){
+    totalThue = thuNhapChiuThue * 0.2 ;
+}else if(thuNhap <= 624e+6){
+    totalThue = thuNhapChiuThue * 0.25 ;
+}else if(thuNhap <= 960e+6){
+    totalThue = thuNhapChiuThue * 0.3 ;
+}else{
+    totalThue = thuNhapChiuThue * 0.35 ;
+} 
+document.getElementById("resultsThue").innerHTML = "Họ tên :" + ten + ";" + "Tiền thuế thu nhập cá nhân :" + totalThue + "VND"
 }
+
+
+// bài 4 
+/**
+ * input : nhập mã khách hàng, loại khách hàng, số kết nối, số kênh cao cấp
+ * progress:
+ * //nhà dân
+ * phí xử lí : 4.5
+ * phi dichvu :20.5
+ * phí kenh : 7.5/kenh
+ * // doanh nghiep
+ * phí xử lí : 15
+ * phi dichvu : 70 cho 10 kết nối đầu, trên 10 mỗi kết nối thêm 5
+ * phí kenh : 50/kenh
+ * ouput : tính tiền cáp
+ */
+var phiXuLy = 0;
+var phiDichVu = 0;
+var phiKenh = 0;
+var phiKetNoi = 0;
+var tongTien = 0;
+
+function genderChanged(obj) {
+
+    if (obj.value === 'doanhNghiep') {
+        document.getElementById('number').style.display = 'block';
+    } else {
+        document.getElementById('number').style.display = 'none';
+    }
+}
+
+document.getElementById("btnCap").onclick = function () {
+    var maKh = document.getElementById("maKhInput").value;
+    var soKenh = +document.getElementById("soKenhInput").value;
+    var soKetNoi = +document.getElementById("soKetNoiInput").value;
+    var loaiDoanhNghiep = document.getElementById("loaiDoanhNghiep").value;
+
+    if (loaiDoanhNghiep === 'doanhNghiep') {
+        phiXuLy = 15;
+        if(soKetNoi > 10){
+            phiDichVu = 75 + (soKetNoi - 10) * 5;
+        }else{
+            phiDichVu = 75 ;
+        }
+        phiKenh = soKenh * 50
+        tongTien = phiXuLy + phiDichVu + phiKenh;
+    } else if (loaiDoanhNghiep === 'nhaDan') {
+        phiXuLy = 4.5;
+        phiDichVu = 20.5;
+        phiKenh = soKenh * 7.5;
+        tongTien = phiXuLy + phiDichVu + phiKenh;
+    }
+
+  document.getElementById("resultsCap").innerHTML = "Mã khách hàng :" + maKh + ";" + "Tiền cáp :$" + tongTien ;
+}
+
+
+
+
+
+
+
+
